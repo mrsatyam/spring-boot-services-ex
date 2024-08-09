@@ -1,9 +1,8 @@
 package com.example.finacleservice.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Mono;
 
 @RestController
 public class PayeeNameController {
@@ -30,14 +29,8 @@ public class PayeeNameController {
         return response;
     }
 
-    @GetMapping("/upload")
-    public String upload(@RequestBody Object req) {
-
-        // Assuming the processing of the request parameters and checksum validation is done here.
-
-        // Example response
-        String response = "00|TRANSACTION APPROVED|AFPGVJ2G0909|409918348544|08042024183119|NEILPIUSFERNANDES|2319716714";
-
-        return response;
+    @PostMapping("/upload")
+    public String upload(@RequestBody String requestBody) {
+        return "Dummy upload response";
     }
 }

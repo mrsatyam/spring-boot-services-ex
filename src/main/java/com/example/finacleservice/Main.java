@@ -1,81 +1,72 @@
 package com.example.finacleservice;
 
-import javax.security.auth.login.LoginException;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.*;
-import java.security.Principal;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class Main {
-    public static void main(String[] args) throws LoginException, IOException {
-    getUserPrincipals("ui","mm".toCharArray());
+    public static void main(String[] args) {
+//        Given a binary tree, determine if it is a valid binary search tree (BST).
+//        Definition: A BST is defined as follows: The left subtree of
+//        a node contains only nodes with keys less than the node's key.
+//        The right subtree of a node contains only nodes with keys greater than the node's key. Both the left and right subtrees must also be binary search trees.
+//        Input: 2
+//              / \
+//              1 3    Output: true
+//
+//
+//    Input: 5
+//          / \
+//          1 4
+//          / \
+//           3 6
+//
+//          Output: false Explanation: The root node's value is 5 but its right child's value is 4, which violates the BST rules.
+        Node left = new Node(1, null, null);
+        Node right = new Node(4, new Node(4, new Node(3, null, null), new Node(6, null, null)), null);
+
+        Node node1 = new Node(5, left, right);
+
+        boolean isBinaryTree = isBinaryTree(node1);
+
+        System.out.println(isBinaryTree);
+
+//        Given a list of strings, find the longest common prefix among all the
+//        strings in the list. If there is no common prefix,
+//        return an empty string. Example: Input: ["flower", "flow", "flight"]
+//        Output: "fl" Input: ["dog", "racecar", "car"] Output: "" (no common prefix)
+        List<String> values = Arrays.asList("fix", "fixed", "fixer");
+        List<String> values2 = Arrays.asList("dog", "racecar", "car");
+
+        String longestPrefix = getLongestCommonPrefix(values);
+        System.out.println(longestPrefix);
     }
 
-    protected static final List<Principal> getUserPrincipals(String username, char[] password)
-            throws LoginException, IOException {
+    private static String getLongestCommonPrefix(List<String> values) {
+       var sLengthStr = values.stream().min((s1,s2)-> Integer.compare(s1.length(), s2.length())).orElse("");
+       for(int i = 0;i<sLengthStr.length();i++){
+           var prefix = sLengthStr.substring(0, i+1);
+           var matcher = values.stream().allMatch(s->s.startsWith(prefix));
+           if(!matcher){
+               sLengthStr = sLengthStr.substring(0, i);
+           }
+       }
+       return sLengthStr;
+    }
 
-        if (username == null || username.isEmpty()) {
-            throw new LoginException("No username entered");
-        }
-        try {
-            // Define the API endpoint
-            URL url = new URL("https://samples.auth0.com/oauth/token");
-
-
-            // Open a connection to the URL
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-
-            // Set the request method
-            connection.setRequestMethod("POST");
-
-            // Enable input and output streams
-            connection.setDoOutput(true);
-            connection.setDoInput(true);
-
-            // Set request headers
-            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-
-            // Construct the request body
-            String requestBody = "grant_type=authorization_code" +
-                    "&client_id=kbyuFDidLLm280LIwVFiazOqjO3ty8KH" +
-                    "&client_secret=60Op4HFM0I8ajz0WdiStAbziZ-VFQttXuxixHHs2R7r7-CW8GR79l-mmLqMhc-Sa" +
-                    "&redirect_uri=https://openidconnect.net/callback" +
-                    "&code=ZS-98KuSF6SL4bvl7kCGIbn2Pqlt5MMJXjTSbC5cXQdRU";
-
-            // Write the request body to the output stream
-            OutputStream outputStream = connection.getOutputStream();
-            outputStream.write(requestBody.getBytes());
-            outputStream.flush();
-            outputStream.close();
-
-            // Get the response code
-            int responseCode = connection.getResponseCode();
-            System.out.println("Response Code: " + responseCode);
-
-            // Read the response
-            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            String inputLine;
-            StringBuilder response = new StringBuilder();
-
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
+    static boolean isBinaryTree(Node node) {
+        if (node != null) {
+            if (node.left().root() < node.root() && node.right().root() > node.root()) {
+                return true;
             }
-            in.close();
-
-            // Print the response
-            System.out.println("Response Body: " + response.toString());
-
-            //
-
-
-        } catch (Exception e) {
-            throw e;
         }
-        return null;
+        return false;
+
+    }
+
+    private record Node(int root,
+                        Node left,
+                        Node right) {
 
     }
 }
