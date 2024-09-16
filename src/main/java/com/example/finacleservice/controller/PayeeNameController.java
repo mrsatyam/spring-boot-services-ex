@@ -25,7 +25,7 @@ public class PayeeNameController {
         
         // Example response
         String response = "00|TRANSACTION APPROVED|AFPGVJ2G0909|409918348544|08042024183119|NEILPIUSFERNANDES|2319716714";
-
+        String failResp = "90|PROCESSOR DOWN|AFPGVJ2G0909|409918348544|08042024183119||2319716714";
         return response;
     }
 
