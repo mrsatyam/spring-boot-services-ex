@@ -1,4 +1,4 @@
-package com.example.finacleservice.request;
+package com.example.finacleservice.response;
 
 public record DemographicDetailsResponseWrapper(Response response) {
 

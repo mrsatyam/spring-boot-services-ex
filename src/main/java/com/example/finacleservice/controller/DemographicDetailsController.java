@@ -1,0 +1,39 @@
+package com.example.finacleservice.controller;
+
+import com.example.finacleservice.enc.AES128;
+import com.example.finacleservice.request.DemographicDetailsRequestWrapper;
+import com.example.finacleservice.response.DemographicDetailsResponseWrapper;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+@RestController
+@RequestMapping("api/v1/myapp")
+public class DemographicDetailsController {
+
+    @PostMapping("/demoGraphicDetails")
+    public DemographicDetailsResponseWrapper fetchDemographicDetails(@RequestBody DemographicDetailsRequestWrapper request) {
+
+        // Extract values from the incoming request (if needed)
+        String requestUUID = request.request().header().subHeader().requestUUID();
+        String encryptedRequest = request.request().body().fetchDemographicDetailsRequest().encryptedRequest();
+
+        // Create a dummy response with static values
+        DemographicDetailsResponseWrapper.SubHeader subHeader = new DemographicDetailsResponseWrapper.SubHeader(
+                requestUUID, "AE.ESB.FIN.SDBSP.001", "1.0", "ESB"
+        );
+
+        var encResp = "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";
+        encResp = AES128.encrypt(AES128.decrypt(encResp,"key").replaceFirst("\"reKycDueDate\":\"2031-07-20 00:00:00\"", "\"reKycDueDate\":\"" + LocalDateTime.now().minusDays(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "\""),"key");
+        DemographicDetailsResponseWrapper.FetchDemographicDetailsResponse fetchResponse = new DemographicDetailsResponseWrapper.FetchDemographicDetailsResponse(
+                encResp
+        );
+
+        DemographicDetailsResponseWrapper.Body body = new DemographicDetailsResponseWrapper.Body(fetchResponse);
+
+        DemographicDetailsResponseWrapper.Header header = new DemographicDetailsResponseWrapper.Header(subHeader);
+
+        return new DemographicDetailsResponseWrapper(new DemographicDetailsResponseWrapper.Response(header, body));
+    }
+}

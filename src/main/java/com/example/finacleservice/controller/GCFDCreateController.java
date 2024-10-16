@@ -27,12 +27,12 @@ public class GCFDCreateController {
         var encReq = request.request().body().createFDAccountRequest().encryptedRequest();
         log.info("Req recvd: " + encReq);
         var decr = AES128.decrypt(encReq, "IBB741345368e9c11e9ae4b0a0950d80000");
-        CreateFdRequestBody createFdRequestBody = new ObjectMapper().registerModule(new JavaTimeModule())
+        CreateFdRequestBody createFdRequestBody = new ObjectMapper()
                 .readValue(decr, CreateFdRequestBody.class);
         System.out.println(createFdRequestBody);
         var resp = createDummyResponse();
-//        return ResponseEntity.ok(resp);
-        return ResponseEntity.badRequest().body(createDummyErrorResponse());
+        return ResponseEntity.ok(resp);
+        //return ResponseEntity.badRequest().body(createDummyErrorResponse());
     }
 
     public static CreateFdResponseBody createDummyResponseBody() {

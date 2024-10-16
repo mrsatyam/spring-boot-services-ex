@@ -61,9 +61,9 @@ public class FDRDClosureController {
         CloseFDRDResponse.CloseResponse closeResponse = new CloseFDRDResponse.CloseResponse(
                 AES128.encrypt(new ObjectMapper().writeValueAsString(closeFDRDResponsePlain), "IBB741345368e9c11e9ae4b0a0950d80000")
         );
-        Thread.sleep(15000);
+        //Thread.sleep(15000);
         CloseFDRDResponse.Body body = new CloseFDRDResponse.Body(closeResponse);
-        return ResponseEntity.ok(new CloseFDRDResponse(new CloseFDRDResponse.Response(header, body)));
-        //return ResponseEntity.unprocessableEntity().body(new CloseFDRDErrorResponse(new CloseFDRDErrorResponse.ErrorResponse(header, new CloseFDRDErrorResponse.Error("881", "Insufficient balance"))));
+        //return ResponseEntity.ok(new CloseFDRDResponse(new CloseFDRDResponse.Response(header, body)));
+        return ResponseEntity.unprocessableEntity().body(new CloseFDRDErrorResponse(new CloseFDRDErrorResponse.ErrorResponse(header, new CloseFDRDErrorResponse.Error("881", "Insufficient balance"))));
     }
 }

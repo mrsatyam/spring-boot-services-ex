@@ -8,7 +8,7 @@ public record NomineeDetails(
             String relType,
             NomineeContactDetails nomineeContactDetails,
             String nomineeMinorFlag,
-            LocalDate nomineeBirthDate,
+            String nomineeBirthDate,
             String nomineePercentValue,
             GuardianDetails guardianDetails
     ) {
