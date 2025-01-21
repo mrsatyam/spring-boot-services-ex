@@ -1,0 +1,175 @@
+{
+  "type": "Falcon:ScoringResponse:Std",
+  "metadata": {
+    "FAI:FALCON_RESPONSE": "SUCCESS",
+    "FAI:FAS_RESPONSE": {
+      "status": "SUCCESS",
+      "refId": "XttuRisEjcQQhfGv4SBWRtYzNWrYjGZN",
+      "ubaScore": "0",
+      "riskScore": "700",
+      "errorMessage": ""
+    },
+    "FalconHeaderSegment": {
+      "appDataLen": "00001069",
+      "extHdrLen": "0036",
+      "transCode": "200000102",
+      "source": "PMAX      ",
+      "dest": "tdriver   ",
+      "error": "0000000000",
+      "filler": " ",
+      "enExtHdr": "a74f776d-4b7a-4673-b170-be4e339b7301"
+    }
+  },
+  "payload": {
+    "responseRecordVersion": "4",
+    "scoreCount": "02",
+    "scoreDetails": [
+      {
+        "scoreName": "FAS.UBA.SCR           ",
+        "errorCode": "    ",
+        "score": "0   ",
+        "reason1": "    ",
+        "reason2": "    ",
+        "reason3": "    "
+      },
+      {
+        "scoreName": "FAS.RISK.SCR          ",
+        "errorCode": "    ",
+        "score": "700 ",
+        "reason1": "    ",
+        "reason2": "    ",
+        "reason3": "    "
+      },
+      {
+        "scoreName": "                      ",
+        "errorCode": "    ",
+        "score": "    ",
+        "reason1": "    ",
+        "reason2": "    ",
+        "reason3": "    "
+      },
+      {
+        "scoreName": "                      ",
+        "errorCode": "    ",
+        "score": "    ",
+        "reason1": "    ",
+        "reason2": "    ",
+        "reason3": "    "
+      },
+      {
+        "scoreName": "                      ",
+        "errorCode": "    ",
+        "score": "    ",
+        "reason1": "    ",
+        "reason2": "    ",
+        "reason3": "    "
+      },
+      {
+        "scoreName": "                      ",
+        "errorCode": "    ",
+        "score": "    ",
+        "reason1": "    ",
+        "reason2": "    ",
+        "reason3": "    "
+      },
+      {
+        "scoreName": "                      ",
+        "errorCode": "    ",
+        "score": "    ",
+        "reason1": "    ",
+        "reason2": "    ",
+        "reason3": "    "
+      },
+      {
+        "scoreName": "                      ",
+        "errorCode": "    ",
+        "score": "    ",
+        "reason1": "    ",
+        "reason2": "    ",
+        "reason3": "    "
+      }
+    ],
+    "segmentID1_3": [
+      {
+        "segmentID": "        "
+      },
+      {
+        "segmentID": "        "
+      },
+      {
+        "segmentID": "        "
+      }
+    ],
+    "filler1": {
+      "filler1_1": "  ",
+      "filler1_2": "    ",
+      "filler1_3": "  "
+    },
+    "segmentID4_7": [
+      {
+        "segmentID": "        "
+      },
+      {
+        "segmentID": "        "
+      },
+      {
+        "segmentID": "        "
+      },
+      {
+        "segmentID": "        "
+      }
+    ],
+    "filler2": {
+      "filler2_1": "    ",
+      "filler2_2": "    "
+    },
+    "segmentID8": {
+      "segmentID": "        "
+    },
+    "filler3": "    ",
+    "decisionCount": " 0",
+    "decisions1_10": [
+      {
+        "type": "                                ",
+        "code": "                                "
+      },
+      {
+        "type": "                                ",
+        "code": "                                "
+      },
+      {
+        "type": "                                ",
+        "code": "                                "
+      },
+      {
+        "type": "                                ",
+        "code": "                                "
+      },
+      {
+        "type": "                                ",
+        "code": "                                "
+      },
+      {
+        "type": "                                ",
+        "code": "                                "
+      },
+      {
+        "type": "                                ",
+        "code": "                                "
+      },
+      {
+        "type": "                                ",
+        "code": "                                "
+      },
+      {
+        "type": "                                ",
+        "code": "                                "
+      },
+      {
+        "type": "                                ",
+        "code": "                                "
+      }
+    ],
+    "scoringServerId": "    "
+  }
+}
